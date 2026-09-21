@@ -69,7 +69,7 @@ Apple’s default `g++` is Clang and does not ship `bits/stdc++.h`. Install GNU 
 brew install gcc
 ```
 
-CPOS auto-detects Homebrew’s `g++-14`, `g++-15`, etc. when the GUI app’s PATH is thin.
+CPOS auto-detects Homebrew’s version-suffixed `g++-N` (newest first) when the GUI app’s PATH is thin, so it keeps working across `brew upgrade gcc`.
 
 ### Custom compiler or flags
 

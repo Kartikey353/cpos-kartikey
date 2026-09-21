@@ -1090,7 +1090,7 @@ function getCompileConfig(lang: string): CompileConfig {
   if (!value) throw new Error(`No compile command configured for ${lang}`);
 
   // On macOS, plain `g++`/`gcc` is Apple clang, which lacks <bits/stdc++.h>.
-  // Use a real GNU toolchain (e.g. Homebrew g++-15) by absolute path when
+  // Use a real GNU toolchain (e.g. Homebrew g++-16) by absolute path when
   // available, so it works even when the GUI app's PATH misses /opt/homebrew/bin.
   if (lang === "cpp") {
     return applyPlatformRun({
@@ -1132,7 +1132,7 @@ function absolutizeConfig(c: CompileConfig): CompileConfig {
   };
 }
 
-// Resolve a command's leading binary (e.g. `g++-15`, `python3`) to an absolute
+// Resolve a command's leading binary (e.g. `g++-16`, `python3`) to an absolute
 // path when we can find it, so commands work even if the GUI app's PATH is thin.
 function absolutizeCommand(command: string): string {
   const match = command.match(/^(\s*)(\S+)([\s\S]*)$/);
@@ -1299,12 +1299,28 @@ function resolveBinary(candidates: string[], fallback: string): string {
   return fallback;
 }
 
+/**
+ * Major versions to probe for a suffixed GNU compiler, newest first.
+ *
+ * Homebrew and apt only ship version-suffixed binaries (`g++-16`), and the suffix
+ * moves with every major release: `brew upgrade gcc` deletes the old one. A fixed
+ * list silently rots into the `g++` fallback, which on macOS is Apple clang with
+ * no <bits/stdc++.h>, so probe a descending range instead.
+ */
+const GNU_MAJORS = Array.from({ length: 20 }, (_, i) => 30 - i);
+
 function cppCompiler(): string {
-  return resolveBinary(["g++-15", "g++-14", "g++-13", "g++-12", "g++-11"], "g++");
+  return resolveBinary(
+    GNU_MAJORS.map((v) => `g++-${v}`),
+    "g++"
+  );
 }
 
 function cCompiler(): string {
-  return resolveBinary(["gcc-15", "gcc-14", "gcc-13", "gcc-12", "gcc-11"], "gcc");
+  return resolveBinary(
+    GNU_MAJORS.map((v) => `gcc-${v}`),
+    "gcc"
+  );
 }
 
 /** Extra dirs merged into PATH for spawned runs (GUI apps often have a thin PATH). */

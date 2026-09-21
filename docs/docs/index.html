@@ -883,7 +883,8 @@ codeforces = <span class="hl">"your_handle"</span></code></pre>
         <div class="note">
           <strong>macOS C++:</strong> Apple's default <code>g++</code> is Clang and lacks
           <code>bits/stdc++.h</code>. Run <code>brew install gcc</code> — CPOS auto-detects
-          Homebrew's <code>g++-14</code>/<code>g++-15</code> even when the GUI app's PATH is thin.
+          Homebrew's version-suffixed <code>g++-N</code>, newest first, even when the GUI app's PATH
+          is thin, so it survives <code>brew upgrade gcc</code>.
         </div>
         <h3>Environment</h3>
         <div class="table-scroll">
