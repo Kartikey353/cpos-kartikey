@@ -6,21 +6,8 @@
 Open a problem in your browser. CPOS creates the file, loads the samples, and lets you run and submit — without copy-pasting anything.
 </p>
 
-<p align="center">
-  <a href="https://cpos.sohamaggarwal.com"><img alt="Website" src="https://img.shields.io/badge/website-cpos-8b5cf6"></a>
-  <a href="https://cpos.sohamaggarwal.com/docs"><img alt="Docs" src="https://img.shields.io/badge/docs-read-c4b5fd"></a>
-  <a href="https://youtu.be/5HTatBfpK5A"><img alt="Demo" src="https://img.shields.io/badge/demo-YouTube-red?logo=youtube&logoColor=white"></a>
-  <a href="https://marketplace.visualstudio.com/items?itemName=sohamaggarwal.cpos-vscode"><img alt="VS Code" src="https://img.shields.io/badge/VS%20Code-Extension-007ACC?logo=visualstudiocode&logoColor=white"></a>
-  <a href="https://chromewebstore.google.com/detail/gjnbapmjonegeeamdeahcoojgokeogmm"><img alt="Chrome" src="https://img.shields.io/badge/Chrome-Extension-4285F4?logo=googlechrome&logoColor=white"></a>
-  <img alt="license" src="https://img.shields.io/badge/license-MIT-blue.svg">
-  <a href="https://discord.gg/QkdmcRKz"><img alt="Discord" src="https://img.shields.io/badge/Discord-join-5865F2?logo=discord&logoColor=white"></a>
-</p>
 
-<p align="center">
-  <a href="https://youtu.be/5HTatBfpK5A">
-    <img src="https://img.youtube.com/vi/5HTatBfpK5A/maxresdefault.jpg" alt="Watch the CPOS demo on YouTube" width="820">
-  </a>
-</p>
+
 
 <p align="center"><sub>Capture a problem · auto-create your file · run samples · submit from VS Code</sub></p>
 
